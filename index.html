@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALCULATOR</title>
+</head>
+
+<style>
+
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: bisque;
+    }
+
+    .container{
+        border: 1px solid aqua;
+        width: 280px;
+        height: 380px;
+        border-radius: 10px;
+        background-color: white;
+        box-shadow: 0 0 20px black;
+        
+    }
+
+    .text{
+    padding: 10px;
+    text-align: left;
+    }
+    #text{
+        width: 95%;
+        height: 40px;
+        text-align: right;
+        font-size: 20px;
+        border: none;
+        
+    }
+    #text:focus{
+        border: none;
+    
+    }
+
+
+    .buttons{
+        display: grid;
+        grid-template-columns: 70px 70px 70px 70px;
+     position: relative;
+     left: 5px;
+       
+    }
+    button{
+       height: 50px;
+       width: 50px;
+       border-radius: 50%;
+       border: none;
+       margin: 5px;
+       font-size: 20px;
+       cursor: pointer;
+    }
+
+    button:hover{
+        background-color: aquamarine;
+    }
+
+    h1{
+        position: absolute;
+        top: 40px;
+    }
+    #result{
+        
+        background-color:chocolate;
+        width: 120px;
+        border-radius: 30px;
+        color: white;
+    }
+
+</style>
+<body>
+
+    <h1>CALCULATOR</h1>
+
+
+    <div class="container">
+         
+       <div class=text>
+        <input type="text" id="text">
+       </div>
+
+       <div class="buttons">
+        
+        <button style="color: chocolate;" onclick="clearDisplay()">C</button>
+        <button style="color: chocolate;" onclick="back()">del</button>
+        <button style="color: chocolate;" onclick="display('%')">%</button>
+        <button style="color: chocolate;" onclick="display('/')">/</button>
+        <button onclick="display('7')">7</button>
+        <button onclick="display('8')">8</button>
+        <button onclick="display('9')">9</button>
+        <button style="color: chocolate;" onclick="display('*')">*</button>
+        <button onclick="display('4')">4</button>
+        <button onclick="display('5')">5</button>
+        <button onclick="display('6')">6</button>
+        <button style="color: chocolate;" onclick="display('-')">-</button>
+        <button onclick="display('1')">1</button>
+        <button onclick="display('2')">2</button>
+        <button onclick="display('3')">3</button>
+        <button style="color: chocolate;" onclick="display('+')">+</button>
+      
+        <button onclick="display('.')">.</button>
+        <button onclick="display('0')">0</button>
+        <button id="result" onclick="result('=')">=</button>
+        
+    
+        </div>
+    </div>
+
+
+    <script>
+
+    let output=document.getElementById("text");
+
+    function display(val){
+
+    output.value+=val
+
+    }
+
+    function result(){
+       try{
+       output.value=eval(output.value);
+
+       }
+       catch(error){
+       alert("invalid input")
+       }
+       
+    }
+
+    function clearDisplay(){
+    output.value="";
+    }
+
+    function back(){
+    output.value=output.value.slice(0,-1)
+    }
+
+         
+
+    </script>
+    
+</body>
+</html>
